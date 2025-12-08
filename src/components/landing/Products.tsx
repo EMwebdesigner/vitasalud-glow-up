@@ -108,7 +108,7 @@ const products: Product[] = [
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="group relative h-[420px] min-w-[300px] md:min-w-[340px] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+    <div className="group relative h-[420px] w-full flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
@@ -220,13 +220,15 @@ const Products = () => {
           {/* Cards Container */}
           <div className="overflow-hidden mx-8 md:mx-16">
             <div
-              className="flex gap-6 transition-transform duration-500 ease-out"
+              className="flex transition-transform duration-500 ease-out"
               style={{
-                transform: `translateX(-${currentIndex * (340 + 24)}px)`,
+                transform: `translateX(-${currentIndex * 100}%)`,
               }}
             >
               {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <div key={product.id} className="w-full flex-shrink-0 px-2 md:px-3">
+                  <ProductCard product={product} />
+                </div>
               ))}
             </div>
           </div>
