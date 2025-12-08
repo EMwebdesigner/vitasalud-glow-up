@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar } from "lucide-react";
+import mandarinaPattern from "@/assets/mandarina-pattern.png";
 
 const CTASection = () => {
   const scrollToContact = () => {
@@ -11,6 +12,15 @@ const CTASection = () => {
 
   return (
     <section className="py-20 md:py-28 bg-primary relative overflow-hidden">
+      {/* Mandarina pattern background */}
+      <div 
+        className="absolute inset-0 opacity-20"
+        style={{
+          backgroundImage: `url(${mandarinaPattern})`,
+          backgroundSize: '400px 400px',
+          backgroundRepeat: 'repeat',
+        }}
+      />
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
