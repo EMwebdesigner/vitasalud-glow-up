@@ -35,7 +35,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMobileMenuOpen
           ? "bg-background/95 backdrop-blur-md shadow-sm"
           : "bg-transparent"
       }`}
@@ -87,7 +87,11 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-foreground"
+            className={`lg:hidden p-2 rounded-full transition-colors ${
+              isScrolled || isMobileMenuOpen
+                ? "text-foreground bg-transparent"
+                : "text-foreground bg-background/90 shadow-sm"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -97,8 +101,8 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? "max-h-96 pb-6" : "max-h-0"
+          className={`lg:hidden overflow-hidden transition-all duration-300 bg-background ${
+            isMobileMenuOpen ? "max-h-[500px] pb-6" : "max-h-0"
           }`}
         >
           <div className="flex flex-col gap-4 pt-4 border-t border-border">
