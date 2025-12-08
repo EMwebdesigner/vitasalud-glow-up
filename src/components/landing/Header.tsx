@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logoVitasalud from "@/assets/logo-vitasalud.png";
 
 const navLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -48,14 +49,13 @@ const Header = () => {
               e.preventDefault();
               scrollToSection("#inicio");
             }}
-            className="flex items-center gap-2"
+            className="flex items-center"
           >
-            <span className="text-2xl md:text-3xl font-display font-bold text-primary">
-              VITA
-            </span>
-            <span className="text-2xl md:text-3xl font-display font-bold text-brand-magenta">
-              SALUD
-            </span>
+            <img 
+              src={logoVitasalud} 
+              alt="VITASALUD - Nutrición Clínica" 
+              className="h-12 md:h-16 w-auto"
+            />
           </a>
 
           {/* Desktop Navigation */}
