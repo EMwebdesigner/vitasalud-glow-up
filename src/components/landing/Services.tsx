@@ -1,25 +1,35 @@
 import { UserCheck, Monitor, FileText, BookOpen } from "lucide-react";
 
+// Import service images
+import consultaPresencial from "@/assets/services/consulta-presencial.jpg";
+import consultaOnline from "@/assets/services/consulta-online.jpg";
+import planesPersonalizados from "@/assets/services/planes-personalizados.jpg";
+import educacionAlimentaria from "@/assets/services/educacion-alimentaria.jpg";
+
 const services = [
   {
     icon: UserCheck,
     title: "Consulta Presencial",
     description: "Evaluación completa, mediciones antropométricas y plan nutricional personalizado.",
+    image: consultaPresencial,
   },
   {
     icon: Monitor,
     title: "Consulta Online",
     description: "Acompañamiento profesional desde cualquier lugar, con seguimiento por WhatsApp.",
+    image: consultaOnline,
   },
   {
     icon: FileText,
     title: "Planes Personalizados",
     description: "Programas específicos para pérdida de peso, masa muscular, salud digestiva y más.",
+    image: planesPersonalizados,
   },
   {
     icon: BookOpen,
     title: "Educación Alimentaria",
     description: "Herramientas prácticas, recetas y guías para un cambio real y sostenible.",
+    image: educacionAlimentaria,
   },
 ];
 
@@ -42,20 +52,32 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className={`bg-card p-6 lg:p-8 rounded-card shadow-card hover:shadow-card-hover hover-scale-card transition-all duration-300 opacity-0 animate-fade-in-up stagger-${index + 1}`}
+              className={`relative overflow-hidden rounded-card shadow-card hover:shadow-card-hover hover-scale-card transition-all duration-300 opacity-0 animate-fade-in-up stagger-${index + 1} group min-h-[320px]`}
             >
-              {/* Icon */}
-              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
-                <service.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
-              </div>
+              {/* Background Image */}
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                style={{ backgroundImage: `url(${service.image})` }}
+              />
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/95 via-foreground/70 to-foreground/30" />
 
               {/* Content */}
-              <h3 className="text-card-title font-display text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
+              <div className="relative z-10 p-6 lg:p-8 h-full flex flex-col justify-end">
+                {/* Icon */}
+                <div className="w-14 h-14 bg-primary/90 rounded-xl flex items-center justify-center mb-5 shadow-lg">
+                  <service.icon className="w-7 h-7 text-primary-foreground" strokeWidth={1.5} />
+                </div>
+
+                {/* Text Content */}
+                <h3 className="text-card-title font-display text-background mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-background/90 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
