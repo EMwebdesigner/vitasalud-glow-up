@@ -25,11 +25,13 @@ const Footer = () => {
           {/* Logo & Description */}
           <div>
             <a href="#inicio" className="inline-block mb-4">
-              <img 
-                src={logoVitasalud} 
-                alt="VITASALUD - Nutrición Clínica" 
-                className="h-14 w-auto"
-              />
+              <div className="bg-white rounded-full p-1">
+                <img 
+                  src={logoVitasalud} 
+                  alt="VITASALUD - Nutrición Clínica" 
+                  className="h-14 w-auto"
+                />
+              </div>
             </a>
             <p className="text-white/70 leading-relaxed">
               Consultorio nutricional especializado en educación alimentaria, hábitos saludables y planes personalizados.
