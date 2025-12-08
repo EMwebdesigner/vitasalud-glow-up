@@ -1,4 +1,5 @@
 import { Instagram, Heart } from "lucide-react";
+import logoVitasalud from "@/assets/logo-vitasalud.png";
 
 const footerLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -23,9 +24,12 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-10 md:gap-8 mb-10">
           {/* Logo & Description */}
           <div>
-            <a href="#inicio" className="inline-flex items-center gap-1 mb-4">
-              <span className="text-2xl font-display font-bold text-primary">VITA</span>
-              <span className="text-2xl font-display font-bold text-brand-magenta">SALUD</span>
+            <a href="#inicio" className="inline-block mb-4">
+              <img 
+                src={logoVitasalud} 
+                alt="VITASALUD - Nutrición Clínica" 
+                className="h-14 w-auto"
+              />
             </a>
             <p className="text-white/70 leading-relaxed">
               Consultorio nutricional especializado en educación alimentaria, hábitos saludables y planes personalizados.
