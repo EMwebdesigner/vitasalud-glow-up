@@ -66,20 +66,20 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/50 md:from-foreground/90 md:via-foreground/70 md:to-foreground/40" />
       </div>
 
-      {/* Slide Navigation Arrows */}
+      {/* Slide Navigation Arrows - Hidden on mobile to prevent overlap */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm border border-background/30 flex items-center justify-center text-background hover:bg-background/30 transition-all duration-300"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-background/20 backdrop-blur-sm border border-background/30 items-center justify-center text-background hover:bg-background/30 transition-all duration-300"
         aria-label="Slide anterior"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={20} />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm border border-background/30 flex items-center justify-center text-background hover:bg-background/30 transition-all duration-300"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-background/20 backdrop-blur-sm border border-background/30 items-center justify-center text-background hover:bg-background/30 transition-all duration-300"
         aria-label="Siguiente slide"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={20} />
       </button>
 
       {/* Slide Indicators */}
