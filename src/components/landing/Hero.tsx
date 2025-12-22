@@ -1,7 +1,42 @@
-import { Check, MessageCircle, Calendar } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Check, MessageCircle, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+// Import hero slideshow images
+import slide1 from "@/assets/hero/slide-1.jpg";
+import slide2 from "@/assets/hero/slide-2.jpg";
+import slide3 from "@/assets/hero/slide-3.jpg";
+import slide4 from "@/assets/hero/slide-4.jpg";
+import slide5 from "@/assets/hero/slide-5.jpg";
+
+const slides = [slide1, slide2, slide3, slide4, slide5];
+const SLIDE_INTERVAL = 5000; // 5 seconds
+
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const goToSlide = useCallback((index: number) => {
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentSlide(index);
+    setTimeout(() => setIsTransitioning(false), 700);
+  }, [isTransitioning]);
+
+  const nextSlide = useCallback(() => {
+    goToSlide((currentSlide + 1) % slides.length);
+  }, [currentSlide, goToSlide]);
+
+  const prevSlide = useCallback(() => {
+    goToSlide((currentSlide - 1 + slides.length) % slides.length);
+  }, [currentSlide, goToSlide]);
+
+  // Auto-advance slides
+  useEffect(() => {
+    const timer = setInterval(nextSlide, SLIDE_INTERVAL);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
+
   const scrollToContact = () => {
     const element = document.querySelector("#contacto");
     if (element) {
@@ -14,87 +49,116 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-      {/* Background decoration */}
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
+      {/* Background Slideshow */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 right-0 w-96 h-96 bg-secondary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-80 h-80 bg-brand-peach/10 rounded-full blur-3xl" />
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ backgroundImage: `url(${slide})` }}
+          />
+        ))}
+        {/* Overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/40" />
       </div>
 
-      <div className="container-main">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      {/* Slide Navigation Arrows */}
+      <button
+        onClick={prevSlide}
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm border border-background/30 flex items-center justify-center text-background hover:bg-background/30 transition-all duration-300"
+        aria-label="Slide anterior"
+      >
+        <ChevronLeft size={24} />
+      </button>
+      <button
+        onClick={nextSlide}
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm border border-background/30 flex items-center justify-center text-background hover:bg-background/30 transition-all duration-300"
+        aria-label="Siguiente slide"
+      >
+        <ChevronRight size={24} />
+      </button>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? "bg-primary w-8"
+                : "bg-background/50 hover:bg-background/80"
+            }`}
+            aria-label={`Ir a slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      <div className="container-main relative z-10 pt-20">
+        <div className="max-w-2xl">
           {/* Content */}
-          <div className="order-2 lg:order-1">
-            <div className="opacity-0 animate-fade-in-down">
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-secondary/20 text-secondary-foreground px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Check size={16} className="text-primary" />
-                Consultas presenciales y online
-              </div>
-
-              {/* Title */}
-              <h1 className="text-hero font-display text-foreground mb-6">
-                Transformá tu salud con un plan nutricional{" "}
-                <span className="text-primary">diseñado para vos</span>
-              </h1>
-
-              {/* Subtitle */}
-              <p className="text-body-lg text-muted-foreground mb-8 max-w-xl">
-                El acompañamiento profesional que necesitás para mejorar tus hábitos y alcanzar tus objetivos de bienestar.
-              </p>
-
-              {/* Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  size="lg"
-                  onClick={scrollToContact}
-                  className="hover-scale-btn gap-2"
-                >
-                  <Calendar size={20} />
-                  Agendar Consulta
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  onClick={openWhatsApp}
-                  className="hover-scale-btn gap-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                >
-                  <MessageCircle size={20} />
-                  Escribir por WhatsApp
-                </Button>
-              </div>
+          <div className="opacity-0 animate-fade-in-down">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 bg-background/20 backdrop-blur-sm text-background px-4 py-2 rounded-full text-sm font-medium mb-6 border border-background/20">
+              <Check size={16} className="text-primary" />
+              Consultas presenciales y online
             </div>
-          </div>
 
-          {/* Image */}
-          <div className="order-1 lg:order-2 opacity-0 animate-fade-in-up stagger-2">
-            <div className="relative">
-              {/* Main image container */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1470&auto=format&fit=crop"
-                  alt="Platillos saludables y nutritivos"
-                  className="w-full h-[400px] md:h-[500px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
-              </div>
+            {/* Title */}
+            <h1 className="text-hero font-display text-background mb-6 drop-shadow-lg">
+              Transformá tu salud con un plan nutricional{" "}
+              <span className="text-primary">diseñado para vos</span>
+            </h1>
 
-              {/* Floating card */}
-              <div className="absolute -bottom-6 -left-6 bg-card p-4 rounded-xl shadow-card animate-float hidden md:block">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
-                    <Check className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">+500</p>
-                    <p className="text-sm text-muted-foreground">Pacientes felices</p>
-                  </div>
+            {/* Subtitle */}
+            <p className="text-body-lg text-background/90 mb-8 max-w-xl drop-shadow-md">
+              El acompañamiento profesional que necesitás para mejorar tus hábitos y alcanzar tus objetivos de bienestar.
+            </p>
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                size="lg"
+                onClick={scrollToContact}
+                className="hover-scale-btn gap-2 shadow-lg"
+              >
+                <Calendar size={20} />
+                Agendar Consulta
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={openWhatsApp}
+                className="hover-scale-btn gap-2 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background shadow-lg"
+              >
+                <MessageCircle size={20} />
+                Escribir por WhatsApp
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8 mt-12">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-primary/90 rounded-full flex items-center justify-center shadow-lg">
+                  <Check className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <div>
+                  <p className="font-semibold text-background text-xl">+500</p>
+                  <p className="text-sm text-background/80">Pacientes felices</p>
                 </div>
               </div>
-
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-brand-peach/30 rounded-full blur-xl" />
-              <div className="absolute bottom-10 right-10 w-16 h-16 bg-secondary/40 rounded-full blur-lg" />
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-secondary/90 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-secondary-foreground font-bold">5★</span>
+                </div>
+                <div>
+                  <p className="font-semibold text-background text-xl">Excelente</p>
+                  <p className="text-sm text-background/80">Valoración</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
