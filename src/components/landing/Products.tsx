@@ -109,7 +109,7 @@ const products: Product[] = [
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="group relative h-[420px] w-full flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-2 border-accent/40 hover:border-accent">
+    <div className="group relative h-[420px] w-full flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-4 border-accent/40 hover:border-accent">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
