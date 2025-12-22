@@ -49,7 +49,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-20 pb-16 md:pt-0 md:pb-0">
       {/* Background Slideshow */}
       <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
@@ -63,7 +63,7 @@ const Hero = () => {
           />
         ))}
         {/* Overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-foreground/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/80 to-foreground/50 md:from-foreground/90 md:via-foreground/70 md:to-foreground/40" />
       </div>
 
       {/* Slide Navigation Arrows */}
@@ -98,66 +98,66 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container-main relative z-10 pt-20 pointer-events-auto">
+      <div className="container-main relative z-10 pointer-events-auto">
         <div className="max-w-2xl">
           {/* Content */}
-          <div className="opacity-0 animate-fade-in-down">
+          <div className="opacity-0 animate-fade-in-down space-y-4 md:space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-background/20 backdrop-blur-sm text-background px-4 py-2 rounded-full text-sm font-medium mb-6 border border-background/20">
-              <Check size={16} className="text-primary" />
+            <div className="inline-flex items-center gap-2 bg-background/20 backdrop-blur-sm text-background px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium border border-background/20">
+              <Check size={14} className="text-primary md:w-4 md:h-4" />
               Consultas presenciales y online
             </div>
 
             {/* Title */}
-            <h1 className="text-hero font-display text-background mb-6 drop-shadow-lg">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-background leading-tight drop-shadow-lg">
               Transformá tu salud con un plan nutricional{" "}
               <span className="text-primary">diseñado para vos</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-body-lg text-background/90 mb-8 max-w-xl drop-shadow-md">
+            <p className="text-sm sm:text-base md:text-lg text-background/90 max-w-xl drop-shadow-md leading-relaxed">
               El acompañamiento profesional que necesitás para mejorar tus hábitos y alcanzar tus objetivos de bienestar.
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Button
-                size="lg"
+                size="default"
                 onClick={scrollToContact}
-                className="hover-scale-btn gap-2 shadow-lg"
+                className="hover-scale-btn gap-2 shadow-lg text-sm md:text-base"
               >
-                <Calendar size={20} />
+                <Calendar size={18} />
                 Agendar Consulta
               </Button>
               <Button
-                size="lg"
+                size="default"
                 variant="outline"
                 onClick={openWhatsApp}
-                className="hover-scale-btn gap-2 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background shadow-lg"
+                className="hover-scale-btn gap-2 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background shadow-lg text-sm md:text-base"
               >
-                <MessageCircle size={20} />
+                <MessageCircle size={18} />
                 Escribir por WhatsApp
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-8 mt-12">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-primary/90 rounded-full flex items-center justify-center shadow-lg">
-                  <Check className="w-6 h-6 text-primary-foreground" />
+            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 pt-4 md:pt-8">
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/90 rounded-full flex items-center justify-center shadow-lg">
+                  <Check className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="font-semibold text-background text-xl">+500</p>
-                  <p className="text-sm text-background/80">Pacientes felices</p>
+                  <p className="font-semibold text-background text-base md:text-xl">+500</p>
+                  <p className="text-xs md:text-sm text-background/80">Pacientes felices</p>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 bg-secondary/90 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-secondary-foreground font-bold">5★</span>
+              <div className="flex items-center gap-2 md:gap-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-secondary/90 rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-secondary-foreground font-bold text-sm md:text-base">5★</span>
                 </div>
                 <div>
-                  <p className="font-semibold text-background text-xl">Excelente</p>
-                  <p className="text-sm text-background/80">Valoración</p>
+                  <p className="font-semibold text-background text-base md:text-xl">Excelente</p>
+                  <p className="text-xs md:text-sm text-background/80">Valoración</p>
                 </div>
               </div>
             </div>
