@@ -179,7 +179,7 @@ const Products = () => {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section id="productos" className="section-spacing bg-background overflow-hidden">
+    <section id="productos" className="section-spacing bg-[hsl(336_65%_94%)] overflow-hidden">
       <div className="container-main">
         {/* Header */}
         <div className="text-center mb-12">
