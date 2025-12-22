@@ -162,14 +162,14 @@ const Contact = () => {
             </div>
             <div className="rounded-xl overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.0673956614!2d-67.0211!3d10.4806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI4JzUwLjIiTiA2N8KwMDEnMTUuOSJX!5e0!3m2!1ses!2sve!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.48511749877!2d-71.6387768!3d10.6962693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e899ecc6ea5bf6b%3A0xaa2ec1a47bc002b6!2sCentro%20M%C3%A9dico%20del%20Norte!5e0!3m2!1ses!2sve!4v1710000000000!5m2!1ses!2sve"
                 width="100%"
                 height="350"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación del consultorio VitaSalud"
+                title="Centro Médico del Norte - VitaSalud"
                 className="w-full"
               />
             </div>
