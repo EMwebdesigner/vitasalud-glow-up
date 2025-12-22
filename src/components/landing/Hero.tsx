@@ -99,7 +99,7 @@ const Hero = () => {
       </div>
 
       <div className="container-main relative z-10 pointer-events-auto">
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           {/* Content */}
           <div className="opacity-0 animate-fade-in-down space-y-5 md:space-y-6">
             {/* Badge */}
@@ -119,80 +119,86 @@ const Hero = () => {
               El acompañamiento profesional que necesitás para mejorar tus hábitos y alcanzar tus objetivos de bienestar.
             </p>
 
-            {/* Schedule Info Block */}
-            <div className="bg-background/10 backdrop-blur-md rounded-xl border border-background/20 p-4 md:p-5 max-w-lg">
-              <h3 className="text-background font-semibold text-sm md:text-base mb-3 flex items-center gap-2">
-                <Clock size={16} className="text-primary" />
-                Atención nutricional
-              </h3>
-              
-              <div className="space-y-3 text-xs md:text-sm">
-                {/* Presencial */}
-                <div className="flex items-start gap-2">
-                  <MapPin size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                  <div className="text-background/90">
-                    <span className="font-medium text-background">Consultas presenciales:</span>
-                    <div className="mt-1 space-y-0.5 text-background/80">
-                      <p>Centro Médico de Occidente — Lun · Mié · Jue</p>
-                      <p>Cardioplus — Lun a Vie</p>
+            {/* Schedule + CTA Row */}
+            <div className="flex flex-col lg:flex-row gap-5 lg:gap-6 lg:items-start">
+              {/* Schedule Info Block */}
+              <div className="bg-background/10 backdrop-blur-md rounded-xl border border-background/20 p-4 md:p-5 flex-shrink-0">
+                <h3 className="text-background font-semibold text-sm md:text-base mb-3 flex items-center gap-2">
+                  <Clock size={16} className="text-primary" />
+                  Atención nutricional
+                </h3>
+                
+                <div className="space-y-3 text-xs md:text-sm">
+                  {/* Presencial */}
+                  <div className="flex items-start gap-2">
+                    <MapPin size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                    <div className="text-background/90">
+                      <span className="font-medium text-background">Consultas presenciales:</span>
+                      <div className="mt-1 space-y-0.5 text-background/80">
+                        <p>Centro Médico de Occidente — Lun · Mié · Jue</p>
+                        <p>Cardioplus — Lun a Vie</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Online */}
+                  <div className="flex items-start gap-2">
+                    <Calendar size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                    <div className="text-background/90">
+                      <span className="font-medium text-background">Consultas online:</span>
+                      <span className="ml-1 text-background/80">Lunes a Viernes</span>
                     </div>
                   </div>
                 </div>
                 
-                {/* Online */}
-                <div className="flex items-start gap-2">
-                  <Calendar size={14} className="text-primary mt-0.5 flex-shrink-0" />
-                  <div className="text-background/90">
-                    <span className="font-medium text-background">Consultas online:</span>
-                    <span className="ml-1 text-background/80">Lunes a Viernes</span>
+                <p className="text-background/60 text-xs mt-3 italic">
+                  Atención con cita previa
+                </p>
+              </div>
+
+              {/* CTA + Stats Block */}
+              <div className="flex flex-col gap-4">
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    size="default"
+                    onClick={scrollToContact}
+                    className="hover-scale-btn gap-2 shadow-lg text-sm md:text-base"
+                  >
+                    <Calendar size={18} />
+                    Agendar Consulta
+                  </Button>
+                  <Button
+                    size="default"
+                    variant="outline"
+                    onClick={openWhatsApp}
+                    className="hover-scale-btn gap-2 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background shadow-lg text-sm md:text-base"
+                  >
+                    <MessageCircle size={18} />
+                    Escribir por WhatsApp
+                  </Button>
+                </div>
+
+                {/* Stats */}
+                <div className="flex flex-wrap gap-4 sm:gap-6">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/90 rounded-full flex items-center justify-center shadow-lg">
+                      <Check className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-background text-base md:text-xl">+500</p>
+                      <p className="text-xs md:text-sm text-background/80">Pacientes felices</p>
+                    </div>
                   </div>
-                </div>
-              </div>
-              
-              <p className="text-background/60 text-xs mt-3 italic">
-                Atención con cita previa
-              </p>
-            </div>
-
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-1">
-              <Button
-                size="default"
-                onClick={scrollToContact}
-                className="hover-scale-btn gap-2 shadow-lg text-sm md:text-base"
-              >
-                <Calendar size={18} />
-                Agendar Consulta
-              </Button>
-              <Button
-                size="default"
-                variant="outline"
-                onClick={openWhatsApp}
-                className="hover-scale-btn gap-2 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background shadow-lg text-sm md:text-base"
-              >
-                <MessageCircle size={18} />
-                Escribir por WhatsApp
-              </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 pt-4 md:pt-6">
-              <div className="flex items-center gap-2 md:gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/90 rounded-full flex items-center justify-center shadow-lg">
-                  <Check className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <p className="font-semibold text-background text-base md:text-xl">+500</p>
-                  <p className="text-xs md:text-sm text-background/80">Pacientes felices</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2 md:gap-3">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-secondary/90 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-secondary-foreground font-bold text-sm md:text-base">5★</span>
-                </div>
-                <div>
-                  <p className="font-semibold text-background text-base md:text-xl">Excelente</p>
-                  <p className="text-xs md:text-sm text-background/80">Valoración</p>
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-secondary/90 rounded-full flex items-center justify-center shadow-lg">
+                      <span className="text-secondary-foreground font-bold text-sm md:text-base">5★</span>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-background text-base md:text-xl">Excelente</p>
+                      <p className="text-xs md:text-sm text-background/80">Valoración</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
