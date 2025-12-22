@@ -154,14 +154,16 @@ const ProductCard = ({ product }: { product: Product }) => {
 const Products = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const slidesPerView = 2;
+  const totalSlides = Math.ceil(products.length / slidesPerView);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % products.length);
-  }, []);
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
-  }, []);
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+  }, [totalSlides]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -225,9 +227,15 @@ const Products = () => {
                 transform: `translateX(-${currentIndex * 100}%)`,
               }}
             >
-              {products.map((product) => (
-                <div key={product.id} className="w-full flex-shrink-0 px-2 md:px-3">
-                  <ProductCard product={product} />
+              {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+                <div key={slideIndex} className="w-full flex-shrink-0 px-2 md:px-3">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    {products
+                      .slice(slideIndex * slidesPerView, slideIndex * slidesPerView + slidesPerView)
+                      .map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                      ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -236,7 +244,7 @@ const Products = () => {
 
         {/* Dots Navigation */}
         <div className="flex justify-center gap-2 mt-8">
-          {products.map((_, index) => (
+          {Array.from({ length: totalSlides }).map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
@@ -245,7 +253,7 @@ const Products = () => {
                   ? "bg-primary w-8"
                   : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
               }`}
-              aria-label={`Ir al producto ${index + 1}`}
+              aria-label={`Ir al slide ${index + 1}`}
             />
           ))}
         </div>
