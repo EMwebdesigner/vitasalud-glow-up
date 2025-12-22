@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { Check, MessageCircle, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { Check, MessageCircle, Calendar, ChevronLeft, ChevronRight, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Import hero slideshow images
@@ -101,10 +101,10 @@ const Hero = () => {
       <div className="container-main relative z-10 pointer-events-auto">
         <div className="max-w-2xl">
           {/* Content */}
-          <div className="opacity-0 animate-fade-in-down space-y-4 md:space-y-6">
+          <div className="opacity-0 animate-fade-in-down space-y-5 md:space-y-6">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-background/20 backdrop-blur-sm text-background px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-medium border border-background/20">
-              <Check size={14} className="text-primary md:w-4 md:h-4" />
+            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-background px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-primary/30">
+              <Check size={16} className="text-primary" />
               Consultas presenciales y online
             </div>
 
@@ -119,8 +119,43 @@ const Hero = () => {
               El acompañamiento profesional que necesitás para mejorar tus hábitos y alcanzar tus objetivos de bienestar.
             </p>
 
+            {/* Schedule Info Block */}
+            <div className="bg-background/10 backdrop-blur-md rounded-xl border border-background/20 p-4 md:p-5 max-w-lg">
+              <h3 className="text-background font-semibold text-sm md:text-base mb-3 flex items-center gap-2">
+                <Clock size={16} className="text-primary" />
+                Atención nutricional
+              </h3>
+              
+              <div className="space-y-3 text-xs md:text-sm">
+                {/* Presencial */}
+                <div className="flex items-start gap-2">
+                  <MapPin size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                  <div className="text-background/90">
+                    <span className="font-medium text-background">Consultas presenciales:</span>
+                    <div className="mt-1 space-y-0.5 text-background/80">
+                      <p>Centro Médico de Occidente — Lun · Mié · Jue</p>
+                      <p>Cardioplus — Lun a Vie</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Online */}
+                <div className="flex items-start gap-2">
+                  <Calendar size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                  <div className="text-background/90">
+                    <span className="font-medium text-background">Consultas online:</span>
+                    <span className="ml-1 text-background/80">Lunes a Viernes</span>
+                  </div>
+                </div>
+              </div>
+              
+              <p className="text-background/60 text-xs mt-3 italic">
+                Atención con cita previa
+              </p>
+            </div>
+
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row gap-3 pt-1">
               <Button
                 size="default"
                 onClick={scrollToContact}
@@ -141,7 +176,7 @@ const Hero = () => {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 pt-4 md:pt-8">
+            <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8 pt-4 md:pt-6">
               <div className="flex items-center gap-2 md:gap-3">
                 <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/90 rounded-full flex items-center justify-center shadow-lg">
                   <Check className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
