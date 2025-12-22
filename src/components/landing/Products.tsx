@@ -155,8 +155,23 @@ const ProductCard = ({ product }: { product: Product }) => {
 const Products = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const slidesPerView = 2;
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect screen size for responsive slides
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const slidesPerView = isMobile ? 1 : 2;
   const totalSlides = Math.ceil(products.length / slidesPerView);
+
+  // Reset index when switching between mobile/desktop to avoid out-of-bounds
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [isMobile]);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
