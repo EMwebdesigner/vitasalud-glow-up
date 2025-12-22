@@ -153,27 +153,6 @@ const Hero = () => {
 
               {/* CTA + Stats Block */}
               <div className="flex flex-col gap-4">
-                {/* Buttons */}
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button
-                    size="default"
-                    onClick={scrollToContact}
-                    className="hover-scale-btn gap-2 shadow-lg text-sm md:text-base"
-                  >
-                    <Calendar size={18} />
-                    Agendar Consulta
-                  </Button>
-                  <Button
-                    size="default"
-                    variant="outline"
-                    onClick={openWhatsApp}
-                    className="hover-scale-btn gap-2 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background shadow-lg text-sm md:text-base"
-                  >
-                    <MessageCircle size={18} />
-                    Escribir por WhatsApp
-                  </Button>
-                </div>
-
                 {/* Stats */}
                 <div className="flex flex-wrap gap-4 sm:gap-6">
                   <div className="flex items-center gap-2 md:gap-3">
@@ -194,6 +173,27 @@ const Hero = () => {
                       <p className="text-xs md:text-sm text-background/80">Valoración</p>
                     </div>
                   </div>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    size="default"
+                    onClick={scrollToContact}
+                    className="hover-scale-btn gap-2 shadow-lg text-sm md:text-base"
+                  >
+                    <Calendar size={18} />
+                    Agendar Consulta
+                  </Button>
+                  <Button
+                    size="default"
+                    variant="outline"
+                    onClick={openWhatsApp}
+                    className="hover-scale-btn gap-2 bg-background/10 backdrop-blur-sm border-background/30 text-background hover:bg-background/20 hover:text-background shadow-lg text-sm md:text-base"
+                  >
+                    <MessageCircle size={18} />
+                    Escribir por WhatsApp
+                  </Button>
                 </div>
               </div>
             </div>
