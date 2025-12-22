@@ -203,7 +203,7 @@ const Products = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           {/* Navigation Arrows */}
           <button
             onClick={() => {
@@ -230,7 +230,7 @@ const Products = () => {
           </button>
 
           {/* Cards Container */}
-          <div className="overflow-hidden mx-8 md:mx-16">
+          <div className="overflow-visible mx-8 md:mx-16 py-4">
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{
@@ -238,8 +238,8 @@ const Products = () => {
               }}
             >
               {Array.from({ length: totalSlides }).map((_, slideIndex) => (
-                <div key={slideIndex} className="w-full flex-shrink-0 px-2 md:px-3">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div key={slideIndex} className="w-full flex-shrink-0 px-4 md:px-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     {products
                       .slice(slideIndex * slidesPerView, slideIndex * slidesPerView + slidesPerView)
                       .map((product) => (
