@@ -51,14 +51,15 @@ const Hero = () => {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Slideshow */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 z-0">
         {slides.map((slide, index) => (
-          <div
+          <img
             key={index}
-            className={`absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out ${
+            src={slide}
+            alt={`Slide ${index + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
               index === currentSlide ? "opacity-100" : "opacity-0"
             }`}
-            style={{ backgroundImage: `url(${slide})` }}
           />
         ))}
         {/* Overlay for readability */}
@@ -97,7 +98,7 @@ const Hero = () => {
         ))}
       </div>
 
-      <div className="container-main relative z-10 pt-20">
+      <div className="container-main relative z-10 pt-20 pointer-events-auto">
         <div className="max-w-2xl">
           {/* Content */}
           <div className="opacity-0 animate-fade-in-down">
