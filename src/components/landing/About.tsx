@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import andreaImage from "@/assets/about/andrea-rodriguez.png";
 
 const checklistItems = [
   "Planes personalizados",
@@ -17,7 +18,7 @@ const About = () => {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1470&auto=format&fit=crop"
+                  src={andreaImage}
                   alt="Lic. Andrea Rodríguez - Nutricionista Clínica"
                   className="w-full h-[400px] md:h-[500px] object-cover object-top"
                 />
