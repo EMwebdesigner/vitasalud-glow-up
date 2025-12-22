@@ -218,7 +218,7 @@ const Products = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative overflow-hidden">
+        <div className="relative">
           {/* Navigation Arrows */}
           <button
             onClick={() => {
@@ -226,10 +226,10 @@ const Products = () => {
               setIsAutoPlaying(false);
               setTimeout(() => setIsAutoPlaying(true), 10000);
             }}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 hover:bg-background shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110 -translate-x-1/2 md:translate-x-0"
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-background/90 hover:bg-background shadow-lg rounded-full p-2 md:p-3 transition-all duration-200 hover:scale-110"
             aria-label="Anterior producto"
           >
-            <ChevronLeft className="w-6 h-6 text-foreground" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
           </button>
           
           <button
@@ -238,14 +238,14 @@ const Products = () => {
               setIsAutoPlaying(false);
               setTimeout(() => setIsAutoPlaying(true), 10000);
             }}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/90 hover:bg-background shadow-lg rounded-full p-3 transition-all duration-200 hover:scale-110 translate-x-1/2 md:translate-x-0"
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-background/90 hover:bg-background shadow-lg rounded-full p-2 md:p-3 transition-all duration-200 hover:scale-110"
             aria-label="Siguiente producto"
           >
-            <ChevronRight className="w-6 h-6 text-foreground" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
           </button>
 
           {/* Cards Container */}
-          <div className="overflow-visible mx-8 md:mx-16 py-4">
+          <div className="overflow-hidden mx-12 md:mx-20 py-4">
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{
