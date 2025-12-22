@@ -102,11 +102,6 @@ const Hero = () => {
         <div className="max-w-4xl">
           {/* Content */}
           <div className="opacity-0 animate-fade-in-down space-y-5 md:space-y-6">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm text-background px-4 py-2 rounded-full text-xs md:text-sm font-medium border border-primary/30">
-              <Check size={16} className="text-primary" />
-              Consultas presenciales y online
-            </div>
 
             {/* Title */}
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-background leading-tight drop-shadow-lg">
