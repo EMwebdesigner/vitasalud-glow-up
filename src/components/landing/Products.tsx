@@ -13,6 +13,7 @@ import mantequillaMani from "@/assets/products/mantequilla-mani.jpg";
 import barritasEnergeticas from "@/assets/products/barritas-energeticas.jpg";
 import mixFrutosSecos from "@/assets/products/mix-frutos-secos.jpg";
 import pancakeMix from "@/assets/products/pancake-mix.jpg";
+import productsBgPattern from "@/assets/products-bg-pattern.png";
 
 interface Product {
   id: number;
@@ -179,8 +180,17 @@ const Products = () => {
   }, [isAutoPlaying, nextSlide]);
 
   return (
-    <section id="productos" className="section-spacing bg-[hsl(336_65%_94%)] overflow-hidden">
-      <div className="container-main">
+    <section 
+      id="productos" 
+      className="section-spacing overflow-hidden relative"
+      style={{
+        backgroundImage: `url(${productsBgPattern})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div className="container-main relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground mb-4">
