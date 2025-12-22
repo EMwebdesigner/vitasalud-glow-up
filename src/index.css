@@ -6,49 +6,49 @@
 
 @layer base {
   :root {
-    --background: 50 70% 97%;
-    --foreground: 210 20% 6%;
+    --background: 45 25% 92%;
+    --foreground: 210 25% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 20% 6%;
+    --card: 45 20% 96%;
+    --card-foreground: 210 25% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 20% 6%;
+    --popover: 45 20% 96%;
+    --popover-foreground: 210 25% 8%;
 
-    --primary: 64 65% 52%;
+    --primary: 64 65% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 80 52% 66%;
-    --secondary-foreground: 210 20% 6%;
+    --secondary: 80 45% 55%;
+    --secondary-foreground: 210 25% 8%;
 
-    --muted: 40 30% 96%;
-    --muted-foreground: 210 10% 40%;
+    --muted: 45 20% 88%;
+    --muted-foreground: 210 15% 35%;
 
-    --accent: 336 68% 58%;
+    --accent: 336 65% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 4 65% 58%;
+    --destructive: 4 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 20% 90%;
-    --input: 40 20% 90%;
-    --ring: 64 65% 52%;
+    --border: 45 18% 82%;
+    --input: 45 18% 82%;
+    --ring: 64 65% 45%;
 
     --radius: 0.75rem;
 
     /* Brand Colors */
-    --yellow: 42 68% 63%;
-    --light-green: 80 52% 66%;
-    --lime: 64 65% 52%;
-    --peach: 14 76% 70%;
-    --magenta: 336 68% 58%;
-    --soft-red: 4 65% 58%;
-    --dark: 210 30% 6%;
+    --yellow: 42 65% 55%;
+    --light-green: 80 45% 55%;
+    --lime: 64 65% 45%;
+    --peach: 14 70% 62%;
+    --magenta: 336 65% 50%;
+    --soft-red: 4 65% 50%;
+    --dark: 210 30% 8%;
     --white: 0 0% 100%;
 
     /* Section backgrounds */
-    --section-alt: 45 30% 97%;
-    --section-green: 80 40% 96%;
+    --section-alt: 45 22% 88%;
+    --section-green: 80 35% 90%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
