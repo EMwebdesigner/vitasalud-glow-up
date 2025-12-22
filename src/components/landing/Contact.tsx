@@ -148,6 +148,36 @@ const Contact = () => {
             </div>
           </div>
         </div>
+
+        {/* Google Maps */}
+        <div className="mt-12 lg:mt-16 opacity-0 animate-fade-in-up stagger-3">
+          <div className="bg-card p-6 rounded-card shadow-card">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center">
+                <MapPin className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-display font-semibold text-foreground">
+                Encuéntranos
+              </h3>
+            </div>
+            <div className="rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.0673956614!2d-67.0211!3d10.4806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDI4JzUwLjIiTiA2N8KwMDEnMTUuOSJX!5e0!3m2!1ses!2sve!4v1234567890"
+                width="100%"
+                height="350"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ubicación del consultorio VitaSalud"
+                className="w-full"
+              />
+            </div>
+            <p className="mt-4 text-sm text-muted-foreground text-center">
+              Consultas presenciales con cita previa
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );
