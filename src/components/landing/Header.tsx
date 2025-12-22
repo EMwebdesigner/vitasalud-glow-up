@@ -37,7 +37,7 @@ const Header = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
           ? "bg-background/95 backdrop-blur-md shadow-sm"
-          : "bg-transparent"
+          : "bg-gradient-to-r from-white/90 via-white/50 to-transparent"
       }`}
     >
       <div className="container-main">
