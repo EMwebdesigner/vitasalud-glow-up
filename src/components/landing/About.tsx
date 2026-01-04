@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import andreaImage from "@/assets/about/andrea-rodriguez.png";
+import andreaImage from "@/assets/about/ana-gomez.png";
 
 const checklistItems = [
   "Planes personalizados",
@@ -19,7 +19,7 @@ const About = () => {
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
                   src={andreaImage}
-                  alt="Lic. Andrea Rodríguez - Nutricionista Clínica"
+                  alt="Lic. Ana Gomez - Nutricionista Clínica"
                   className="w-full h-[400px] md:h-[500px] object-cover object-top"
                 />
               </div>
@@ -39,7 +39,7 @@ const About = () => {
           {/* Content */}
           <div className="opacity-0 animate-fade-in-right stagger-2">
             <h2 className="text-section-title font-display text-foreground mb-6">
-              Sobre la Lic. Andrea Rodríguez
+              Sobre la Lic. Ana Gomez
             </h2>
 
             <div className="space-y-4 text-body-lg text-muted-foreground mb-8">
