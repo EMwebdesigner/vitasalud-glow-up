@@ -1,5 +1,4 @@
-import { Instagram, Heart } from "lucide-react";
-import logoVitasalud from "@/assets/logo-vitasalud.png";
+import { Instagram, Heart, Leaf } from "lucide-react";
 
 const footerLinks = [
   { label: "Inicio", href: "#inicio" },
@@ -24,13 +23,17 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-10 md:gap-8 mb-10">
           {/* Logo & Description */}
           <div>
-            <a href="#inicio" className="inline-block mb-4">
-              <div className="bg-white rounded-full p-1">
-                <img 
-                  src={logoVitasalud} 
-                  alt="VITASALUD - Nutrición Clínica" 
-                  className="h-14 w-auto"
-                />
+            <a href="#inicio" className="inline-flex items-center gap-2 mb-4 group">
+              <div className="w-10 h-10 bg-gradient-to-br from-primary to-brand-green rounded-full flex items-center justify-center shadow-md">
+                <Leaf className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="text-xl font-display font-bold tracking-tight text-white">
+                  VITA<span className="text-primary">SALUD</span>
+                </span>
+                <span className="text-[10px] text-white/60 tracking-widest uppercase">
+                  Nutrición Clínica
+                </span>
               </div>
             </a>
             <p className="text-white/70 leading-relaxed">
